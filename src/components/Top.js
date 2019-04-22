@@ -2,10 +2,12 @@ import React from 'react';
 
 
 class TopBar extends React.Component {
+    state={zipcode:19115}
     onFormSubmit=(e)=>{
-        e.preventDefault()
-        console.log(e.target.value)
+        e.preventDefault();
+        this.props.getByZipCode(this.state.zipcode)
     }
+    
     render(){
          let d = new Date(); const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 return(<div>
@@ -19,7 +21,13 @@ class TopBar extends React.Component {
                                     <button type="button" className="btn btn-secondary onethird">
                                         <form onSubmit={this.onFormSubmit} >
                                             <div className="input-group mb-3">
-                                                <input type="numbers"  maxLength="5"   className="form-control" placeholder="zipcode" />
+                                                <input 
+                                                    type="numbers" 
+                                                    maxLength="5"   
+                                                    className="form-control" 
+                                                    placeholder="zipcode" 
+                                                    onChange={e => this.setState({zipcode: e.target.value.replace(/\D/g,'') }) }
+                                                    value={this.state.zipcode}/>
                                                 <div className="input-group-append">
                                                   <input className="btn btn-outline-warning" type="submit" id="button-addon2"/>
                                                 </div>
