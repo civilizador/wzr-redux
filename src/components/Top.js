@@ -2,7 +2,8 @@ import React from 'react';
 
 
 class TopBar extends React.Component {
-    onSubmit=(e)=>{
+    onFormSubmit=(e)=>{
+        e.preventDefault()
         console.log(e.target.value)
     }
     render(){
@@ -29,7 +30,7 @@ class TopBar extends React.Component {
                              <div>
                                 <div className="col-md-12 col-sm-12">
                                     <img  />
-                                    <h2> It is in</h2>
+                                    <h2> It is {this.props.w_data.description} in</h2>
                                     <h2>  {this.props.w_data.city}   ,  {  this.props.w_data.state }   </h2>
                                 </div>
                                  </div>

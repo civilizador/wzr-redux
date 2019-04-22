@@ -4,11 +4,11 @@ const getLoc = () => new Promise(
         window.navigator.geolocation.getCurrentPosition(
                 (pos) => resolve(pos),
                 (err)=>reject(err)
-            )
-        }
-    )
+        )
+    }
+);
 
- async function getWeatherData () {
+  const getWeatherData = async()=>{
      const loc = await getLoc();
      const data =  await axios.get(`https://weather.cit.api.here.com/weather/1.0/report.json?product=observation&latitude=${loc.coords.latitude}&longitude=${loc.coords.longitude}&oneobservation=true&app_id=lLg8lP3cuRb0KFN4aUVR&app_code=MgkUAlU8bwpPAAKhm3ZXyw`)
     return data
