@@ -32,7 +32,7 @@ class App extends Component {
        return (
         <div className="App">
           <div id="mainframeDiv">
-            <TopBar   w_data= {this.props.state.weather}  />
+            <TopBar   w_data= {this.props.state.weather}  getByZipCode={this.getByZipCode}/>
             <Body w_data= {this.props.state.weather} />
           </div>
         </div>
