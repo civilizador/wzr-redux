@@ -4,16 +4,26 @@ import {getLocAction} from '../actions';
 import {getLocbyZip} from '../actions';
 import TopBar from './Top'
 class App extends Component {
-    
+   
     componentDidMount(){
-            return this.props.getLocAction()
+       this.props.getLocAction()
+       this.stateinterval = setInterval( ()=>{this.props.getLocAction()},5000 )
     }
+    
     getByZipCode=(zipcode)=>{
-      this.setState({weatherByzip:true})
-         this.props.getLocbyZip(zipcode)
+        clearInterval(this.stateinterval)
+        this.props.getLocbyZip(zipcode)
         console.log('Printing zip code arrow function ',zipcode)
     }
-
+    
+    shouldComponentUpdate(prevState,nextState){
+      if(prevState===nextState){ 
+          console.log(nextState);
+          return false}
+      else return true
+    }
+    
+    
     render() {
        return (
 

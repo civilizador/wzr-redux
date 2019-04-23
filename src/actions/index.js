@@ -19,7 +19,7 @@ export const getLocAction = () => {
     return async function(dispatch,getState) {
            const data = await getWeatherData();
            const weatherInfo= await data.data.observations.location[0].observation[0]
-           console.log(data)
+        //   console.log(data)
          dispatch({ type: 'GET_LOC',  payload: weatherInfo })
     }
 
@@ -30,7 +30,7 @@ export const getLocbyZip = (zipcode) => {
     return async function(dispatch,getState) {
            const data = await axios.get(`https://weather.cit.api.here.com/weather/1.0/report.json?product=observation&zipcode=${zipcode}&oneobservation=true&app_id=lLg8lP3cuRb0KFN4aUVR&app_code=MgkUAlU8bwpPAAKhm3ZXyw`)
            const weatherInfo= await data.data.observations.location[0].observation[0]
-           console.log(data)
+        //   console.log(data)
          dispatch({ type: 'GET_LOC_BY_ZIP',  payload: weatherInfo })
     }
 
