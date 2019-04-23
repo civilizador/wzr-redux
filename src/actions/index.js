@@ -10,7 +10,7 @@ const getLoc = () => new Promise(
 
   const getWeatherData = async()=>{
      const loc = await getLoc();
-     const data =  await axios.get(`https://weather.cit.api.here.com/weather/1.0/report.json?product=observation&latitude=${loc.coords.latitude}&longitude=${loc.coords.longitude}&oneobservation=true&app_id=lLg8lP3cuRb0KFN4aUVR&app_code=MgkUAlU8bwpPAAKhm3ZXyw`)
+     const data =  await axios.get(`https://weather.cit.api.here.com/weather/1.0/report.json?product=observation&latitude=${loc.coords.latitude}&longitude=${loc.coords.longitude}&oneobservation=true&app_id=${process.env.REACT_APP_APP_ID}&app_code=${process.env.REACT_APP_APP_CODE}`)
     return data
  }
 

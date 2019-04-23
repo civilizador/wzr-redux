@@ -61,8 +61,31 @@ div.inline {
     font-weight: 800;
 }
 
+#body{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.weather_item {
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    border-radius: 25px;
+    text-align: center;
+}
+i {color:white;
+    width: 100%;
+    font-size: 2vw;
+    position:relative;
+    top: 50%;
+    transform: translate(0,-50%);
+     display: inline-block;
+      
+ 
+}
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
   .main_container {
     font-size: 3vw!important;
   }
@@ -81,5 +104,8 @@ div.inline {
   button.btn.btn-secondary.onethird {
       padding: 0;
   }
-
+    
+    i{
+        font-size: 4vw;
+    }    
 }
